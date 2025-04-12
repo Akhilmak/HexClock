@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="index.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="background">
+       <div class="d1">
+        <p class="time"></p>
+        <p class="col"></p>
+       
+       </div>
+    </div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+<script>
+    function refresh(){
+
+        x=1;
+        var d=new Date();
+        var h = d.getHours();
+ 	var m = d.getMinutes();
+ 	var s = d.getSeconds();
+
+ 	if (h<=9) {h = '0'+h};
+ 	if (m<=9) {m = '0'+m};
+	if (s<=9) {s = '0'+s};
+
+    var color="#"+h+m+s;
+    var hex="#" +
+    h.toString(16).padStart(2, '0') +
+    m.toString(16).padStart(2, '0') +
+    s.toString(16).padStart(2, '0');
+    $('body').css('background-color',hex);
+        $(".col").text(hex)
+        $(".time").text(h+":"+m+":"+s)
+    setTimeout (refresh,x*1000)
+
+    }
+    refresh();
+</script>
+</html>
